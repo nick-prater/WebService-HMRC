@@ -10,7 +10,7 @@ use Try::Tiny;
 
 =head1 NAME
 
-WebService::HMRC::Response - Response object for the UK HMRC HelloWorld API
+WebService::HMRC::Response - Response object for the UK HMRC MTD API
 
 =head1 VERSION
 
@@ -22,8 +22,8 @@ our $VERSION = '0.01';
 
 =head1 DESCRIPTION
 
-This is part of a suite of Perl modules for interacting with the UK's HMRC
-Making Tax Digital APIs.
+This is part of the L<WebService::HMRC> suite of Perl modules for
+interacting with the UK's HMRC Making Tax Digital APIs.
 
 This class represents the response from an api call. It is inherited by
 other classes which implement bindings to HMRC APIs rather than being
@@ -35,15 +35,14 @@ used directly.
     my $hmrc = WebService::HMRC::HelloWorld->new();
 
     # Hello World endpoint requires no authorisation
+    # It returns a WebService::HMRC::Response object reference
     my $hmrc_response = $hmrc->hello_world()
 
     print "success\n" if $hmrc_response->is_success();
 
-    my $status_code = $hmrc_response->http->code;
-    print "api call yielded http response code $status_code\n";
-
-    my $message = $hmrc_response->data->{message};
-    print "received: $message\n";
+    my $status_code  = $hmrc_response->http->code;
+    my $message      = $hmrc_response->data->{message};
+    my $content_type = $hmrc_response->header('content-type');
     
 =head1 PROPERTIES
 
@@ -139,15 +138,17 @@ Nick Prater <nick@npbroadcast.com>
 
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-webservice-hmrc-helloworld at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=WebService-HMRC-HelloWorld>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
+Please report any bugs or feature requests to
+C<bug-webservice-hmrc-helloworld@rt.cpan.org>, or through
+the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=WebService-HMRC>.
+I will be notified, and then you'll automatically be notified of progress on
+your bug as I make changes.
 
 =head1 SUPPORT
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc WebService::HMRC::HelloWorld
+    perldoc WebService::HMRC::Response
 
 
 You can also look for information at:
@@ -156,19 +157,19 @@ You can also look for information at:
 
 =item * RT: CPAN's request tracker (report bugs here)
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=WebService-HMRC-HelloWorld>
-
-=item * AnnoCPAN: Annotated CPAN documentation
-
-L<http://annocpan.org/dist/WebService-HMRC-HelloWorld>
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=WebService-HMRC>
 
 =item * CPAN Ratings
 
-L<http://cpanratings.perl.org/d/WebService-HMRC-HelloWorld>
+L<http://cpanratings.perl.org/d/WebService-HMRC>
 
 =item * Search CPAN
 
-L<http://search.cpan.org/dist/WebService-HMRC-HelloWorld/>
+L<http://search.cpan.org/dist/WebService-HMRC/>
+
+=item * GitHub
+
+L<https://github.com/nick-prater/WebService-HMRC>
 
 =back
 
@@ -177,9 +178,9 @@ L<http://search.cpan.org/dist/WebService-HMRC-HelloWorld/>
 This module was originally developed for use as part of the
 L<LedgerSMB|https://ledgersmb.org/> open source accounting software.
 
-=head1 LICENSE AND COPYRIGHT
+=head1 LICENCE AND COPYRIGHT
 
-Copyright 2018 Nick Prater.
+Copyright 2018 Nick Prater, NP Broadcast Limited.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a
@@ -216,7 +217,6 @@ YOUR LOCAL LAW. UNLESS REQUIRED BY LAW, NO COPYRIGHT HOLDER OR
 CONTRIBUTOR WILL BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, OR
 CONSEQUENTIAL DAMAGES ARISING IN ANY WAY OUT OF THE USE OF THE PACKAGE,
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 
 =cut
 
