@@ -4,10 +4,10 @@ use warnings;
 use ExtUtils::MakeMaker;
 
 WriteMakefile(
-    NAME             => 'WebService::HMRC::HelloWorld',
+    NAME             => 'WebService::HMRC',
     AUTHOR           => q{Nick Prater <nick@npbroadcast.com>},
-    VERSION_FROM     => 'lib/WebService/HMRC/HelloWorld.pm',
-    ABSTRACT_FROM    => 'lib/WebService/HMRC/HelloWorld.pm',
+    VERSION_FROM     => 'lib/WebService/HMRC.pm',
+    ABSTRACT_FROM    => 'lib/WebService/HMRC.pm',
     LICENSE          => 'artistic_2',
     PL_FILES         => {},
     MIN_PERL_VERSION => 5.006,
@@ -26,7 +26,8 @@ WriteMakefile(
         'namespace::autoclean' => 0,
         'Try::Tiny' => 0,
         'URI' => 0,
+        'URI::Escape' => 0,
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-    clean => { FILES => 'WebService-HMRC-HelloWorld-*' },
+    clean => { FILES => 'WebService-HMRC-*' },
 );
