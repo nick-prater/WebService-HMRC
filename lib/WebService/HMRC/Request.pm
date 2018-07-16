@@ -25,13 +25,20 @@ our $VERSION = '0.01';
 
 =head1 DESCRIPTION
 
+This is part of the L<WebService::HMRC> suite of Perl modules for
+interacting with the UK's HMRC Making Tax Digital APIs.
+
 This is a base class for making requests to the UK's HMRC Making Tax Digital
 API. It is usually inherited by other higher-level classes, but can be
 used directly.
 
-This class provides methods for calling api endpoints, mapping their response
-into a standard class. It also provides a LWP::UserAgent with appropriate
-headers set and a lower-level method for constructing api endpoint urls.
+This module provides methods for calling api endpoints, mapping their response
+into a standard class and decoding their JSON payload. It also provides a
+LWP::UserAgent with appropriate headers set and a lower-level method for
+constructing api endpoint urls.
+
+Note that access to restricted api endpoints requires application or user
+credentials issued by HMRC.
 
 =head1 SYNOPSIS
 
@@ -77,8 +84,8 @@ headers set and a lower-level method for constructing api endpoint urls.
 
 =head2 auth
 
-A WebService::HMRC::Authenticate object reference providing credentials and tokens
-required to access protected endpoints. If not specified, an empty
+A WebService::HMRC::Authenticate object reference providing credentials and
+tokens required to access protected endpoints. If not specified, an empty
 WebService::HMRC::Authenticate will be created by default.
 
 =cut
@@ -389,8 +396,8 @@ Nick Prater <nick@npbroadcast.com>
 =head1 BUGS
 
 Please report any bugs or feature requests to
-C<bug-webservice-hmrc-helloworld at rt.cpan.org>, or through the web interface
-at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=WebService-HMRC-HelloWorld>.
+C<bug-webservice-hmrc at rt.cpan.org>, or through the web interface
+at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=WebService-HMRC>.
 I will be notified, and then you'll automatically be notified of progress on
 your bug as I make changes.
 
@@ -398,7 +405,7 @@ your bug as I make changes.
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc WebService::HMRC::HelloWorld
+    perldoc WebService::HMRC::Request
 
 
 You can also look for information at:
@@ -407,19 +414,15 @@ You can also look for information at:
 
 =item * RT: CPAN's request tracker (report bugs here)
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=WebService-HMRC-HelloWorld>
-
-=item * AnnoCPAN: Annotated CPAN documentation
-
-L<http://annocpan.org/dist/WebService-HMRC-HelloWorld>
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=WebService-HMRC>
 
 =item * CPAN Ratings
 
-L<http://cpanratings.perl.org/d/WebService-HMRC-HelloWorld>
+L<http://cpanratings.perl.org/d/WebService-HMRC>
 
 =item * Search CPAN
 
-L<http://search.cpan.org/dist/WebService-HMRC-HelloWorld/>
+L<http://search.cpan.org/dist/WebService-HMRC/>
 
 =back
 
@@ -430,7 +433,7 @@ L<LedgerSMB|https://ledgersmb.org/> open source accounting software.
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2018 Nick Prater.
+Copyright 2018 Nick Prater, NP Broadcast Limited.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a
@@ -471,4 +474,4 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =cut
 
 __PACKAGE__->meta->make_immutable;
-1; # End of WebService::HMRC::HelloWorld
+1;
