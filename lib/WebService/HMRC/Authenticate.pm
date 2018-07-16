@@ -24,10 +24,13 @@ our $VERSION = '0.01';
 
 =head1 DESCRIPTION
 
-This is part of a suite of Perl modules for interacting with the UK's HMRC
-Making Tax Digital APIs.
+This module is part of the L<WebService::HMRC> suite of Perl modules for
+interacting with the UK's HMRC Making Tax Digital APIs.
 
-This class handles authentication with HMRC using OAuth2. For more detail
+It is generally used by other classes which implement bindings to HMRC APIs
+rather than being used directly.
+
+This module handles authentication with HMRC using OAuth2. For more detail
 see:
 L<https://developer.service.hmrc.gov.uk/api-documentation/docs/authorisation/user-restricted-endpoints>
 
@@ -39,6 +42,7 @@ will issue client and application credentials.
     use WebService:HMRC::Authenticate;
 
     my $auth = WebService::HMRC::Authenticate->new({
+        base_url => 'https://test-api.service.hmrc.gov.uk/',
         client_id => $client_id,
         client_secret => $client_secret,
     });
@@ -449,15 +453,15 @@ Nick Prater <nick@npbroadcast.com>
 
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-webservice-hmrc-helloworld at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=WebService-HMRC-HelloWorld>.  I will be notified, and then you'll
+Please report any bugs or feature requests to C<bug-webservice-hmrc at rt.cpan.org>, or through
+the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=WebService-HMRC>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
 
 =head1 SUPPORT
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc WebService::HMRC::HelloWorld
+    perldoc WebService::HMRC::Authenticate
 
 
 You can also look for information at:
@@ -466,19 +470,15 @@ You can also look for information at:
 
 =item * RT: CPAN's request tracker (report bugs here)
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=WebService-HMRC-HelloWorld>
-
-=item * AnnoCPAN: Annotated CPAN documentation
-
-L<http://annocpan.org/dist/WebService-HMRC-HelloWorld>
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=WebService-HMRC>
 
 =item * CPAN Ratings
 
-L<http://cpanratings.perl.org/d/WebService-HMRC-HelloWorld>
+L<http://cpanratings.perl.org/d/WebService-HMRC>
 
 =item * Search CPAN
 
-L<http://search.cpan.org/dist/WebService-HMRC-HelloWorld/>
+L<http://search.cpan.org/dist/WebService-HMRC/>
 
 =back
 
@@ -489,7 +489,7 @@ L<LedgerSMB|https://ledgersmb.org/> open source accounting software.
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2018 Nick Prater.
+Copyright 2018 Nick Prater, NP Broadcast Limited.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a
