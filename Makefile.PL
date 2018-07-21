@@ -15,6 +15,8 @@ WriteMakefile(
         'ExtUtils::MakeMaker' => 0,
     },
     BUILD_REQUIRES => {
+        'Perl::Critic' => 0,
+        'Perl::Critic::Moose' => 0,
         'Test::More' => 0,
         'Test::Exception' => 0,
     },
