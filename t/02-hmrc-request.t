@@ -125,5 +125,3 @@ isa_ok(
 );
 is($response->data->{code}, 'INVALID_RESPONSE', 'INVALID_RESPONSE code generated for invalid "user" url/endpoint');
 is($response->http->request->header('Authorization'), 'Bearer ACCESS_TOKEN', 'Correct Authorization header for "user" endpoint');
-
-

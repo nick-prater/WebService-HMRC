@@ -96,4 +96,3 @@ isa_ok(
 is($response->data->{code}, 'INVALID_RESPONSE', 'INVALID_RESPONSE code generated for invalid "user" url/endpoint');
 is($response->http->request->header('Authorization'), 'Bearer ACCESS_TOKEN', 'Access token used for authorisation header');
 is($response->http->request->header('Content-Type'), 'application/json', 'request content-type set to application/json');
-
