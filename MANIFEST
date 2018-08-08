@@ -3,6 +3,7 @@ lib/WebService/HMRC.pm
 lib/WebService/HMRC/Authenticate.pm
 lib/WebService/HMRC/Request.pm
 lib/WebService/HMRC/Response.pm
+LICENSE
 Makefile.PL
 MANIFEST			This list of files
 README
