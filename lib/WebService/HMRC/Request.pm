@@ -359,9 +359,14 @@ sub post_endpoint_json {
 sub _build_ua {
     my $self = shift;
     my $ua = LWP::UserAgent->new();
+
+    # Accept header defines the API version in use
     $ua->default_header(
         'Accept' => 'application/vnd.hmrc.' . $self->api_version . '+json'
     );
+
+    # Trailing space causes the default libwww user agent to be appended
+    $ua->agent("WebService-HMRC-Request/$VERSION ");
     return $ua;
 }
 
