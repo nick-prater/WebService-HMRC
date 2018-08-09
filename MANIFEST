@@ -6,7 +6,7 @@ lib/WebService/HMRC/Response.pm
 LICENSE
 Makefile.PL
 MANIFEST			This list of files
-README
+README.pod
 t/00-load.t
 t/01-hmrc-response.t
 t/02-hmrc-request.t
