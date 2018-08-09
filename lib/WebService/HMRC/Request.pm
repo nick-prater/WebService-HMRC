@@ -66,7 +66,7 @@ credentials issued by HMRC.
     $r->auth->access_token('MY_ACCESS_TOKEN');
     my $response = $r->get_endpoint({
         endpoint => '/hello/user',
-        auth_type => 'application',
+        auth_type => 'user',
     });
     print $response->data->{message} if $response->is_success;
     
