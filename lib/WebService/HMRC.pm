@@ -16,9 +16,20 @@ Version 0.01
 
 our $VERSION = '0.01';
 
+=head1 SYNOPSIS
+
+    use WebService::HMRC::Request;
+    my $r = WebService::HMRC::Request->new();
+    $r->auth->access_token('MY_ACCESS_TOKEN');
+    my $response = $r->get_endpoint({
+        endpoint => '/hello/user',
+        auth_type => 'user',
+    });
+    print $response->data->{message} if $response->is_success;
+
 =head1 DESCRIPTION
 
-This Perl module is the base stub for a suite of core modules used for
+This Perl module is a base for a suite of modules used for
 interacting with the HMRC Making Tax Digital (MTD) and Making Tax Digital for
 Business (MTDfB) APIs.
 
@@ -65,12 +76,79 @@ available:
 
 =back
 
+=head1 INSTALLATION
+
+To install this module, run the following commands:
+
+	perl Makefile.PL
+	make
+	make test
+	make install
+
 =head1 AUTHORISATION
 
 Except for a small number of open endpoints, access to the HMRC APIs requires
 appliction or user credentials. These must be obtained from HMRC. Application
 credentials (and documentation) may be obtained from their
 L<Developer Hub|https://developer.service.hmrc.gov.uk/api-documentation>
+
+=head1 TESTING
+
+The basic tests, as run as part of the installation instructions shown above,
+do not require an internet connection or authorisation with HMRC.
+
+Developer pre-release tests may be run with the following command:
+
+        RELEASE_TESTING=1 make test
+
+With a working internet connection and appropriate HMRC credentials, specified
+as environment variables, interaction with the real HMRC sandbox api, using
+authorisation, may be tested:
+
+=head2 Test generation of a valid authorisation url
+
+To run these tests:
+
+=over
+
+=item * An application must be registered with HMRC.
+
+=item * The application must be enabled for the 'Hello World' test api with HMRC.
+
+=item * C<urn:ietf:wg:oauth:2.0:oob> must be set as a valid redirect_uri for the application.
+
+=item * HMRC_CLIENT_ID environment variable must be set (issued when application was registered).
+
+=item * The HMRC sandbox test api endpoints must be functioning.
+
+=back
+
+        HMRC_CLIENT_ID=[MY-CLIENT-ID] prove -l t/04-hmrc-authenticate.t
+
+This test generates a url, shown in the test output, which can be pasted into
+a browser to authorise the application and obtain an Authorisation Code for
+the following test stage.
+
+=head2 Test token generation and renewal
+
+In addition to the requirements of the test above, the following environment
+variables must be set.
+
+=over
+
+=item * HMRC_CLIENT_SECRET environment variable must be set (issued when application was registered).
+
+=item * HMRC_AUTH_CODE environment 
+
+=back
+
+        HMRC_CLIENT_ID=[MY-CLIENT-ID] \
+        HMRC_CLIENT_SECRET=[MY-CLIENT_SECRET] \
+        HMRC_AUTH_CODE=[MY-AUTH_CODE] \
+        prove -l t/04-hmrc-authenticate.t
+
+When successful, this test will output the response from refreshing access
+tokens, including new access and refresh tokens.
 
 =head1 AUTHOR
 
@@ -83,12 +161,12 @@ the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=WebService
 I will be notified, and then you'll automatically be notified of progress on your bug as
 I make changes.
 
-=head1 SUPPORT
+=head1 SUPPORT AND DOCUMENTATION
 
-You can find documentation for this module with the perldoc command.
+After installation, you can find documentation for this module with the
+perldoc command.
 
     perldoc WebService::HMRC
-
 
 You can also look for information at:
 
