@@ -22,21 +22,6 @@ Version 0.01
 
 our $VERSION = '0.01';
 
-=head1 DESCRIPTION
-
-This module is part of the L<WebService::HMRC> suite of Perl modules for
-interacting with the UK's HMRC Making Tax Digital APIs.
-
-It is generally used by other classes which implement bindings to HMRC APIs
-rather than being used directly.
-
-This module handles authentication with HMRC using OAuth2. For more detail
-see:
-L<https://developer.service.hmrc.gov.uk/api-documentation/docs/authorisation/user-restricted-endpoints>
-
-To use this module, an application must first be registered with HMRC, who
-will issue client and application credentials.
-
 =head1 SYNOPSIS
 
     use WebService:HMRC::Authenticate;
@@ -87,6 +72,24 @@ will issue client and application credentials.
     # Refreshing will then populate scope and expires_epoch properties
     $new_auth->refresh;
 
+=head1 DESCRIPTION
+
+This module is part of the L<WebService::HMRC> suite of Perl modules for
+interacting with the UK's HMRC Making Tax Digital APIs.
+
+It is generally used by other classes which implement bindings to HMRC APIs
+rather than being used directly.
+
+This module handles authentication with HMRC using OAuth2. For more detail
+see:
+L<https://developer.service.hmrc.gov.uk/api-documentation/docs/authorisation/user-restricted-endpoints>
+
+To use this module, an application must first be registered with HMRC, who
+will issue client and application credentials.
+
+=head1 INSTALLATION AND TESTING
+
+See documentation for L<WebService::HMRC>.
     
 =head1 PROPERTIES
 

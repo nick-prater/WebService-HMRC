@@ -20,15 +20,6 @@ Version 0.01
 
 our $VERSION = '0.01';
 
-=head1 DESCRIPTION
-
-This is part of the L<WebService::HMRC> suite of Perl modules for
-interacting with the UK's HMRC Making Tax Digital APIs.
-
-This class represents the response from an api call. It is inherited by
-other classes which implement bindings to HMRC APIs rather than being
-used directly.
-
 =head1 SYNOPSIS
 
     use WebService::HMRC::HelloWorld;  # inherits this module
@@ -43,7 +34,20 @@ used directly.
     my $status_code  = $hmrc_response->http->code;
     my $message      = $hmrc_response->data->{message};
     my $content_type = $hmrc_response->header('content-type');
-    
+
+=head1 DESCRIPTION
+
+This is part of the L<WebService::HMRC> suite of Perl modules for
+interacting with the UK's HMRC Making Tax Digital APIs.
+
+This class represents the response from an api call. It is inherited by
+other classes which implement bindings to HMRC APIs rather than being
+used directly.
+
+=head1 INSTALLATION AND TESTING
+
+See documentation for L<WebService::HMRC>.
+   
 =head1 PROPERTIES
 
 =head2 data

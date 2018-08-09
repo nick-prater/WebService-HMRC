@@ -23,23 +23,6 @@ Version 0.01
 
 our $VERSION = '0.01';
 
-=head1 DESCRIPTION
-
-This is part of the L<WebService::HMRC> suite of Perl modules for
-interacting with the UK's HMRC Making Tax Digital APIs.
-
-This is a base class for making requests to the UK's HMRC Making Tax Digital
-API. It is usually inherited by other higher-level classes, but can be
-used directly.
-
-This module provides methods for calling api endpoints, mapping their response
-into a standard class and decoding their JSON payload. It also provides a
-LWP::UserAgent with appropriate headers set and a lower-level method for
-constructing api endpoint urls.
-
-Note that access to restricted api endpoints requires application or user
-credentials issued by HMRC.
-
 =head1 SYNOPSIS
 
     use WebService::HMRC::Request;
@@ -79,6 +62,26 @@ credentials issued by HMRC.
     });
     print $response->data->{userId} if $response->is_success;
 
+=head1 DESCRIPTION
+
+This is part of the L<WebService::HMRC> suite of Perl modules for
+interacting with the UK's HMRC Making Tax Digital APIs.
+
+This is a base class for making requests to the UK's HMRC Making Tax Digital
+API. It is usually inherited by other higher-level classes, but can be
+used directly.
+
+This module provides methods for calling api endpoints, mapping their response
+into a standard class and decoding their JSON payload. It also provides a
+LWP::UserAgent with appropriate headers set and a lower-level method for
+constructing api endpoint urls.
+
+Note that access to restricted api endpoints requires application or user
+credentials issued by HMRC.
+
+=head1 INSTALLATION AND TESTING
+
+See documentation for L<WebService::HMRC>.
 
 =head1 PROPERTIES
 
