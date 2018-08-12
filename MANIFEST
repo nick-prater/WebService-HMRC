@@ -12,6 +12,7 @@ t/01-hmrc-response.t
 t/02-hmrc-request.t
 t/03-hmrc-request-post.t
 t/04-hmrc-authenticate.t
+t/05-hmrc-api.t
 xt/boilerplate.t
 xt/critic.t
 xt/manifest.t

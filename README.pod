@@ -73,10 +73,10 @@ available:
 
 To install this module, run the following commands:
 
-	perl Makefile.PL
-	make
-	make test
-	make install
+    perl Makefile.PL
+    make
+    make test
+    make install
 
 =head1 AUTHORISATION
 
@@ -92,7 +92,7 @@ do not require an internet connection or authorisation with HMRC.
 
 Developer pre-release tests may be run with the following command:
 
-        RELEASE_TESTING=1 make test
+    RELEASE_TESTING=1 make test
 
 With a working internet connection and appropriate HMRC credentials, specified
 as environment variables, interaction with the real HMRC sandbox api, using
@@ -116,7 +116,7 @@ To run these tests:
 
 =back
 
-        HMRC_CLIENT_ID=[MY-CLIENT-ID] prove -l t/04-hmrc-authenticate.t
+    HMRC_CLIENT_ID=[MY-CLIENT-ID] prove -l t/04-hmrc-authenticate.t
 
 This test generates a url, shown in the test output, which can be pasted into
 a browser to authorise the application and obtain an Authorisation Code for
@@ -125,23 +125,41 @@ the following test stage.
 =head2 Test token generation and renewal
 
 In addition to the requirements of the test above, the following environment
-variables must be set.
+variables must be set:
 
 =over
 
-=item * HMRC_CLIENT_SECRET environment variable must be set (issued when application was registered).
+=item * HMRC_CLIENT_SECRET (issued when application was registered).
 
-=item * HMRC_AUTH_CODE environment 
+=item * HMRC_AUTH_CODE (obtained after following the authorisation url generated above).
 
 =back
 
-        HMRC_CLIENT_ID=[MY-CLIENT-ID] \
-        HMRC_CLIENT_SECRET=[MY-CLIENT_SECRET] \
-        HMRC_AUTH_CODE=[MY-AUTH_CODE] \
-        prove -l t/04-hmrc-authenticate.t
+    HMRC_CLIENT_ID=[MY-CLIENT-ID] \
+    HMRC_CLIENT_SECRET=[MY-CLIENT_SECRET] \
+    HMRC_AUTH_CODE=[MY-AUTH_CODE] \
+    prove -l t/04-hmrc-authenticate.t
 
 When successful, this test will output the response from refreshing access
 tokens, including new access and refresh tokens.
+
+=head2 Test API Interaction
+
+These tests query the HMRC Hello World API, testing each of the authentication
+types and checking for an expected response. Prerequisites must be in place as
+for the other tests above and the following environment variables set:
+
+=over
+
+=item * HMRC_SERVER_TOKEN (issued when application was registered)
+
+=item * HMRC_AUTH_CODE (refreshed code output by previous test above)
+
+=back
+
+    HMRC_SERVER_TOKEN=[MY-SERVER-TOKEN] \
+    HMRC_AUTH_CODE=[MY-AUTH_CODE] \
+    prove -l t/05-hmrc-api.t
 
 =head1 AUTHOR
 
@@ -160,6 +178,12 @@ After installation, you can find documentation for this module with the
 perldoc command.
 
     perldoc WebService::HMRC
+
+The C<README.pod> file supplied with this distribution is generated from the
+L<WebService::HMRC> module's pod by running the following command from the 
+distribution root:
+
+    perldoc -u lib/WebService/HMRC.pm > README.pod
 
 You can also look for information at:
 
