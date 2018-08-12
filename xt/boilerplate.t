@@ -38,20 +38,16 @@ sub module_boilerplate_ok {
     );
 }
 
-TODO: {
-  not_in_file_ok(README =>
+not_in_file_ok('README.pod' =>
     "The README is used..."       => qr/The README is used/,
     "'version information here'"  => qr/to provide version information/,
-  );
+);
 
-  not_in_file_ok(Changes =>
+not_in_file_ok(Changes =>
     "placeholder date/time"       => qr(Date/time)
-  );
+);
 
-  module_boilerplate_ok('lib/WebService/HMRC.pm');
-  module_boilerplate_ok('lib/WebService/HMRC/Request.pm');
-  module_boilerplate_ok('lib/WebService/HMRC/Response.pm');
-  module_boilerplate_ok('lib/WebService/HMRC/Authenticate.pm');
-
-}
-
+module_boilerplate_ok('lib/WebService/HMRC.pm');
+module_boilerplate_ok('lib/WebService/HMRC/Request.pm');
+module_boilerplate_ok('lib/WebService/HMRC/Response.pm');
+module_boilerplate_ok('lib/WebService/HMRC/Authenticate.pm');
