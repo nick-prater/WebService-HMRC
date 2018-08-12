@@ -239,7 +239,7 @@ sub authorisation_url {
     my ($self, $args) = @_;
 
     defined $args->{scopes} or croak 'scopes not defined';
-    defined $args->{redirect_uri} or croak "redirect_uri not defined";
+    defined $args->{redirect_uri} or croak 'redirect_uri not defined';
     $self->has_client_id or croak 'client_id property not defined for object';
 
     my $uri = $self->endpoint_url('/oauth/authorize');
@@ -415,7 +415,7 @@ sub split_scope_string {
     my $self = shift;
     my $string = shift;
 
-    defined $string or croak "scopes text string is unefined";
+    defined $string or croak 'scopes text string is unefined';
 
     my @scopes = split / /, $string;
     $self->scopes(\@scopes);
