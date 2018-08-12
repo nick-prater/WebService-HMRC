@@ -12,16 +12,11 @@ WriteMakefile(
     PL_FILES         => {},
     MIN_PERL_VERSION => 5.006,
     TEST_REQUIRES => {
-        'Perl::Critic' => 0,
-        'Perl::Critic::Moose' => 0,
-        'Test::CheckManifest' => 0.9,
         'Test::More' => 0,
         'Test::Exception' => 0,
-        'Test::Pod' => 1.22,
-        'Test::Pod::Coverage', => 1.08,
     },
     PREREQ_PM => {
-        'JSON::MaybeXS'=> 0,
+        'JSON::MaybeXS' => 0,
         'List::Util' => 1.33,
         'LWP::UserAgent' => 0,
         'Moose' => 0,
