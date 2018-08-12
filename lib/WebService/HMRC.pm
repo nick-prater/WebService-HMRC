@@ -6,7 +6,7 @@ use warnings;
 
 =head1 NAME
 
-WebService::HMRC - Access the UK HMRC Making Tax Digital API
+WebService::HMRC - Interact with the UK HMRC Making Tax Digital API
 
 =head1 VERSION
 
