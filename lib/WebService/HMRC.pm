@@ -101,7 +101,7 @@ do not require an internet connection or authorisation with HMRC.
 
 Developer pre-release tests may be run with the following command:
 
-    RELEASE_TESTING=1 make test
+    prove -l xt/
 
 With a working internet connection and appropriate HMRC credentials, specified
 as environment variables, interaction with the real HMRC sandbox api, using
