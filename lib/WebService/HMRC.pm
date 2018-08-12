@@ -19,8 +19,10 @@ our $VERSION = '0.01';
 =head1 SYNOPSIS
 
     use WebService::HMRC::Request;
+
     my $r = WebService::HMRC::Request->new();
     $r->auth->access_token('MY_ACCESS_TOKEN');
+
     my $response = $r->get_endpoint({
         endpoint => '/hello/user',
         auth_type => 'user',
