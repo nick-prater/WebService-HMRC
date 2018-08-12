@@ -168,7 +168,7 @@ sub endpoint_url {
     my $endpoint = shift;
 
     # endpoint paramater is mandatory
-    defined $endpoint or croak "endpoint is undefined";
+    defined $endpoint or croak 'endpoint is undefined';
 
     # Strip any leading slash from the endpoint, which would otherwise
     # cause it to be interpreted as an absolute path, stripping any path
@@ -229,12 +229,12 @@ sub get_endpoint {
     # Add authentication headers
     if($args->{auth_type} eq 'application') {
         $self->auth->has_server_token
-            or croak "auth->server_token is not defined";
+            or croak 'auth->server_token is not defined';
         push @headers, 'Authorization' => 'Bearer ' . $self->auth->server_token;
     }
     elsif($args->{auth_type} eq 'user') {
         $self->auth->has_access_token
-            or croak "auth->access_token is not defined";
+            or croak 'auth->access_token is not defined';
         push @headers, 'Authorization' => 'Bearer ' . $self->auth->access_token;
     }
 
@@ -318,12 +318,12 @@ sub post_endpoint_json {
     # Add authentication headers
     if($args->{auth_type} eq 'application') {
         $self->auth->has_server_token
-            or croak "auth->server_token is not defined";
+            or croak 'auth->server_token is not defined';
         push @headers, 'Authorization' => 'Bearer ' . $self->auth->server_token;
     }
     elsif($args->{auth_type} eq 'user') {
         $self->auth->has_access_token
-            or croak "auth->access_token is not defined";
+            or croak 'auth->access_token is not defined';
         push @headers, 'Authorization' => 'Bearer ' . $self->auth->access_token;
     }
 
@@ -389,10 +389,10 @@ sub _display_response_errors {
     my $self = shift;
     my $response = shift;
 
-    carp "Error calling api endpoint: " . $response->http->status_line;
-    carp "code: " . $response->data->{code} if $response->data->{code};
-    carp "message: " . $response->data->{message} if $response->data->{message};
-   
+    carp 'Error calling api endpoint: ' . $response->http->status_line;
+    carp 'code: ' . $response->data->{code} if $response->data->{code};
+    carp 'message: ' . $response->data->{message} if $response->data->{message};
+
     return;
 }
 
