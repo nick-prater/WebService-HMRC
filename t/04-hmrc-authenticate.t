@@ -132,7 +132,7 @@ SKIP: {
 
     # Output url - tester may wish to open this manually to generate
     # an authorisation code.
-    warn "Generated authorisation url:\n$uri\n";
+    diag("Generated authorisation url:\n$uri\n");
 
     # Create user agent to test url validity
     my $ua = LWP::UserAgent->new();
@@ -222,6 +222,6 @@ SKIP: {
     isnt($token->data->{refresh_token}, $ws->{refresh_token}, 'refreshed refresh_token has changed');
 
     # Output tokens - tester may wish to use them for further testing
-    warn "refeshed tokens:\n";
-    warn Dumper $refreshed_tokens->data;
+    diag("refeshed tokens:\n");
+    diag(Dumper $refreshed_tokens->data);
 }
