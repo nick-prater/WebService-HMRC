@@ -14,8 +14,8 @@ t/03-hmrc-request-post.t
 t/04-hmrc-authenticate.t
 t/05-hmrc-api.t
 xt/boilerplate.t
-xt/critic.t
 xt/manifest.t
 xt/perlcriticrc
+xt/perlcritic.t
 xt/pod-coverage.t
 xt/pod.t
