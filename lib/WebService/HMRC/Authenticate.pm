@@ -380,7 +380,9 @@ sub extract_tokens {
     my $token = shift;
 
     return try {
-        $token->{token_type} eq 'bearer' or croak 'token type value is not `bearer`';
+        $token->{token_type} && $token->{token_type} eq 'bearer'
+            or croak 'token type value is not `bearer`';
+        $token->{expires_in} or croak 'expires_in parameter missing from token';
         $token->{expires_in} =~ m/^\d+$/ or croak 'expires_in value is not numeric';
 
         $self->expires_epoch(time + $token->{expires_in});
