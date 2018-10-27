@@ -18,6 +18,7 @@ WriteMakefile(
     PREREQ_PM => {
         'JSON::MaybeXS' => 0,
         'List::Util' => 1.33,
+        'LWP::Protocol::https' => 0,
         'LWP::UserAgent' => 0,
         'Moose' => 0,
         'namespace::autoclean' => 0,
