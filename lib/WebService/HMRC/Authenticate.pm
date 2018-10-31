@@ -70,7 +70,7 @@ our $VERSION = '0.01';
     })
 
     # Refreshing will then populate scope and expires_epoch properties
-    $new_auth->refresh;
+    $new_auth->refresh_tokens;
 
 =head1 DESCRIPTION
 
@@ -133,7 +133,7 @@ has client_secret => (
 =head2 access_token
 
 The access token issued by HMRC. Updated automatically when a new token
-is requested using access_token() or refresh_token() methods, or can be
+is requested using access_token() or refresh_tokens() methods, or can be
 set explicitly to use an existing token.
 
 Access tokens are typically valid for four hours after issue or until
@@ -151,7 +151,7 @@ has access_token => (
 =head2 refresh_token
 
 The refresh token issued by HMRC. Updated automatically when a new token
-is requested using access_token() or refresh_token() methods, or can be
+is requested using access_token() or refresh_tokens() methods, or can be
 set explicitly to use an existing refresh_token.
 
 Refresh tokens are typically valid for 18 months after the application was
@@ -187,7 +187,7 @@ tokens are valid. Scopes are specific and documented for each of HMRC's APIs.
 For example 'read:vat' or 'write:employment'.
 
 Updated according the the HMRC api response when a new token is requested using
-access_token() or refresh_token() methods.
+access_token() or refresh_tokens() methods.
 
 =cut
 
