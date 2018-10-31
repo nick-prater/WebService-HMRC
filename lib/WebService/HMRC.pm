@@ -90,7 +90,7 @@ To install this module, run the following commands:
 =head1 AUTHORISATION
 
 Except for a small number of open endpoints, access to the HMRC APIs requires
-appliction or user credentials. These must be obtained from HMRC. Application
+application or user credentials. These must be obtained from HMRC. Application
 credentials (and documentation) may be obtained from their
 L<Developer Hub|https://developer.service.hmrc.gov.uk/api-documentation>
 
