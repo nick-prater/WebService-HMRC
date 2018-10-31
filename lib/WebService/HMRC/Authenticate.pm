@@ -46,9 +46,9 @@ our $VERSION = '0.01';
     # by the user, or supplied via a callback uri. The
     # authorisation code is valid for 10 minutes.
 
-    # Exchange access code for an access token.
+    # Exchange authorisation code for an access token.
     my $result = $auth->get_access_token({
-        access_code => $access_code,
+        authorisation_code => $authorisaion_code,
         redirect_uri => 'urn:ietf:wg:oauth:2.0:oob',
     });
     $result->is_success or warn "ERROR: ", $result->data->{message};
@@ -262,14 +262,14 @@ sub authorisation_url {
 }
 
 
-=head2 get_access_token({ access_code => $access_code, redirect_uri => $redirect_uri })
+=head2 get_access_token({ authorisation_code => $authorisation_code, redirect_uri => $redirect_uri })
 
-Exchanges the supplied access_code for an access_token.
+Exchanges the supplied authorisation_code for an access_token.
 
 Both client_id and client_secret object properties must be set before calling
 this method.
 
-The redirect_uri parameter must match that used when the access_code was 
+The redirect_uri parameter must match that used when the authorisation_code was 
 requested.
 
 Returns a WebService::HMRC::Response object.
