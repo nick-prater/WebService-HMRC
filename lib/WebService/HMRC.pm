@@ -162,12 +162,12 @@ for the other tests above and the following environment variables set:
 
 =item * HMRC_SERVER_TOKEN (issued when application was registered)
 
-=item * HMRC_AUTH_CODE (refreshed code output by previous test above)
+=item * HMRC_ACCESS_TOKEN (refreshed access_token output by previous test above)
 
 =back
 
     HMRC_SERVER_TOKEN=[MY-SERVER-TOKEN] \
-    HMRC_AUTH_CODE=[MY-AUTH_CODE] \
+    HMRC_ACCESS_TOKEN=[MY-ACCESS-TOKEN] \
     prove -l t/05-hmrc-api.t
 
 =head1 AUTHOR
