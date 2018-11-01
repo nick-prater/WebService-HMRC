@@ -7,7 +7,6 @@ use LWP::UserAgent;
 use Moose;
 use namespace::autoclean;
 use URI;
-use WebService::HMRC::Authenticate;
 use WebService::HMRC::Response;
 
 
@@ -376,6 +375,7 @@ sub _build_ua {
 
 sub _build_auth {
     my $self = shift;
+    require WebService::HMRC::Authenticate;
     return WebService::HMRC::Authenticate->new();
 }
 
